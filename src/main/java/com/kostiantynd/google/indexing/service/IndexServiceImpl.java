@@ -58,7 +58,7 @@ public class IndexServiceImpl implements IndexService {
         WebPage page = new WebPage();
         page.setUrl(url);
         page.setTitle(document.title());
-        page.setText(document.text());
+        page.setText(parser.parseHtml(document));
 
         return page;
     }

@@ -7,4 +7,6 @@ import java.util.Set;
 interface Parser {
 
     Set<String> extractUrls(Document document);
+
+    String parseHtml(Document document);
 }

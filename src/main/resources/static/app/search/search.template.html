@@ -5,9 +5,12 @@
     </div>
   </div>
   <div class="row justify-content-md-center "  ng-show="$ctrl.showEmptyResult">
-    <div class="row justify-content-md-center">
-      <span>No document found for request</span> &nbsp;
+    <div class="col-md-12 message-wrapper">
+      <span>No document found for request</span>&nbsp;
       <span class="bold-class">{{$ctrl.phrase}}</span><span>.</span>
+    </div>
+    <div class="col-md-12 message-wrapper" >
+       <a href="/">Try again.</a>
     </div>
   </div>
   <div ng-show="$ctrl.showResultBlock">

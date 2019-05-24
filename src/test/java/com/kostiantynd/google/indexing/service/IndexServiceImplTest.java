@@ -7,9 +7,8 @@ import org.jsoup.nodes.Document;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.File;
@@ -20,26 +19,25 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
 public class IndexServiceImplTest {
 
     private Document document;
     private Set<String> urlSet;
 
-    @MockBean
+    @Mock
     private Crawler crawler;
 
-    @MockBean
+    @Mock
     private Parser parser;
 
-    @MockBean
+    @Mock
     private IndexScheduler scheduler;
 
-    @MockBean
+    @Mock
     private WebPageRepository repository;
 
-    @Autowired
-    private IndexService service;
+    @InjectMocks
+    private IndexService service = new IndexServiceImpl(parser, repository, scheduler, crawler);
 
     @Before
     public void setUp() throws Exception {
@@ -69,7 +67,7 @@ public class IndexServiceImplTest {
     }
 
     @Test
-    public void shouldScheduleIndexingWhenScanDepthGreaterThanZeroAnd() throws Exception {
+    public void shouldScheduleIndexingWhenScanDepthGreaterThanZeroAnd() {
         service.indexPage(anyString(), 1);
 
         verify(parser, times(1)).extractUrls(document);
@@ -77,7 +75,7 @@ public class IndexServiceImplTest {
     }
 
     @Test
-    public void shouldNotScheduleIndexingWhenScanDepthIsZero() throws Exception {
+    public void shouldNotScheduleIndexingWhenScanDepthIsZero() {
         service.indexPage(anyString(), 0);
 
         verify(parser, never()).extractUrls(any());
@@ -85,7 +83,7 @@ public class IndexServiceImplTest {
     }
 
     @Test
-    public void shouldNotScheduleIndexingWhenScanDepthGreaterThanZeroButUrlSetIsEmpty() throws Exception {
+    public void shouldNotScheduleIndexingWhenScanDepthGreaterThanZeroButUrlSetIsEmpty() {
         when(parser.extractUrls(document)).thenReturn(new HashSet<>());
 
         service.indexPage(anyString(), 1);

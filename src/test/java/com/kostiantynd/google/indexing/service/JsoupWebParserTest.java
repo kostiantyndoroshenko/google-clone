@@ -6,23 +6,18 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
-
 @RunWith(SpringRunner.class)
-@SpringBootTest
 public class JsoupWebParserTest {
 
     private Document document;
 
-    @Autowired
-    private JsoupWebParser parser;
+    private JsoupWebParser parser = new JsoupWebParser();
 
     @Before
     public void setUp() throws Exception {

@@ -1,0 +1,34 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.5.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+	baseName = 'google'
+	version =  '0.1.0'
+}
+
+group = 'com.kostiantynd'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/snapshot' }
+	maven { url 'https://repo.spring.io/milestone' }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-quartz'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	
+	compile 'org.jsoup:jsoup:1.9.1'
+
+	compile('org.springframework.data:spring-data-elasticsearch:3.1.8.RELEASE')
+}

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" ng-app="google">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Google</title>
+
+    <link rel="stylesheet" href="app/app.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.22/angular-ui-router.js"></script>
+
+    <script src="app/app.module.js"></script>
+    <script src="app/app.config.js"></script>
+
+    <script src="app/search/search.module.js"></script>
+    <script src="app/search/search.component.js"></script>
+    <script src="app/search/search.service.js"></script>
+
+    <script src="app/index/index.module.js"></script>
+    <script src="app/index/index.component.js"></script>
+    <script src="app/index/index.service.js"></script>
+
+    <script src="app/index-form/index-form.module.js"></script>
+    <script src="app/index-form/index-form.component.js"></script>
+
+    <script src="app/search-form/search-form.module.js"></script>
+    <script src="app/search-form/search-form.component.js"></script>
+  </head>
+  <body>
+
+    <div class="view-container">
+      <div ui-view ></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

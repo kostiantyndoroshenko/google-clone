@@ -1,0 +1,46 @@
+<div class="container">
+  <div ng-show="$ctrl.showErrorBlock" ng-show="$ctrl.showErrorBlock">
+    <div class="row justify-content-md-center" ng-repeat="error in $ctrl.errors" >
+      {{error.defaultMessage}}
+    </div>
+  </div>
+  <div class="row justify-content-md-center "  ng-show="$ctrl.showEmptyResult">
+    <div class="row justify-content-md-center">
+      <span>No document found for request</span> &nbsp;
+      <span class="bold-class">{{$ctrl.phrase}}</span><span>.</span>
+    </div>
+  </div>
+  <div ng-show="$ctrl.showResultBlock">
+    <div class="row">
+      <div class="col align-self-end sort-link-wrapper">
+        <a href="" ng-click="$ctrl.sortClick()">sort by {{$ctrl.showedSortType.title}}</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="list-group-flush">
+          <li class="list-group-item no-border" ng-repeat="page in $ctrl.pages ">
+            <div class="row">
+              <div class="col-md-12 title-wrapper">
+                <a href="{{page.url}}">{{page.title || "..."}}</a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 link-wrapper">
+                <a href="{{page.url}}">{{page.url}} </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 text-wrapper">
+                <span ng-bind-html="$ctrl.highlight(page.text, $ctrl.phrase)"></span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-md-center view-more-wrapper" ng-show="$ctrl.showViewMore()">
+    <a ng-click="$ctrl.loadPages()" href=""> View more </a>
+  </div>
+</div>

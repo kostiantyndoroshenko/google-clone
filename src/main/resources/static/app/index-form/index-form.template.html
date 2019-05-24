@@ -1,0 +1,27 @@
+<div class="container form-wrapper">
+  <form ng-submit="$ctrl.submitClick()">
+    <div class="form-row">
+      <div class="col-md-8">
+        <input class="form-control"
+               placeholder="http://example.com"
+               ng-model="$ctrl.url"
+               type="url"
+               required
+        >
+      </div>
+      <div class="col-md-2" >
+        <select class="custom-select" required ng-model="$ctrl.scanDepth">
+          <option selected value="">Scan Depth</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-primary" type="submit" >Index</button>
+      </div>
+    </div>
+  </form>
+</div>
